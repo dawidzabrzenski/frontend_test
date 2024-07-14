@@ -1,0 +1,41 @@
+@use "../base/colors" as *;
+@use "../base/typography" as *;
+@use "../utils/mixins" as *;
+
+.footer-container {
+  width: 26rem;
+  &__logo {
+    width: min-content;
+    position: relative;
+    padding: 1rem;
+    font-size: $font-medium-large;
+    font-weight: 600;
+    color: $text-content-color-darker;
+    transition: color 1s ease;
+
+    @include respond(tablet) {
+      font-size: $font-large;
+    }
+
+    &:hover {
+      color: $text-color;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 75.5%;
+      height: 100%;
+      border: 1px solid $text-content-color-darker;
+      transition: all 2s ease;
+      box-sizing: border-box;
+    }
+
+    &:hover::before {
+      transform: rotate(360deg); /* Obrót pseudo-elementu o 90 stopni */
+      border-color: $secondary-color;
+    }
+  }
+}

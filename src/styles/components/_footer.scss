@@ -1,0 +1,134 @@
+@use "../base/colors" as *;
+@use "../base/typography" as *;
+@use "../utils/mixins" as *;
+@use "../utils/icons" as *;
+
+.footer {
+  transform-style: preserve-3d;
+  height: 16rem;
+  background-color: $footer-background-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  border-top: 2px solid #0a0b0d;
+  position: relative;
+
+  &__name {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 26rem;
+    position: relative;
+
+    @include respond(tablet) {
+      display: flex;
+    }
+
+    p {
+      font-size: $font-medium;
+      color: $text-content-color-darker;
+      position: relative;
+      padding: 0 10px;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: calc(50% - 13px);
+        height: 1px;
+        background-color: $text-content-color-darker;
+        top: 50%;
+      }
+
+      &::before {
+        left: 0;
+        transform: translate(-100%, -50%);
+      }
+
+      &::after {
+        right: 0;
+        transform: translate(100%, -50%);
+      }
+    }
+  }
+
+  @include respond(tablet) {
+    padding: 6rem;
+  }
+
+  &__container {
+    position: absolute;
+    top: 0;
+    right: 1.25rem;
+    width: 26rem;
+    height: 10rem;
+    padding: 0 2rem;
+    background-color: $text-color;
+    color: rgb(0, 0, 0);
+    opacity: 0;
+    transform: translateZ(-40px);
+    box-shadow: 0px -16px 56px -1px rgba(0, 0, 0, 1);
+    -webkit-box-shadow: 0px -16px 56px -1px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0px -16px 56px -1px rgba(0, 0, 0, 1);
+    transition: all 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 2rem;
+
+    @include respond(notebook) {
+      bottom: 0rem;
+      right: 6rem;
+    }
+
+    &__button {
+      font-family: inherit;
+      font-size: $font-small-medium;
+      font-weight: 600;
+      background-color: transparent;
+      border: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $secondary-color;
+      }
+    }
+  }
+
+  &__popup {
+    width: 26rem;
+    height: 4.8rem;
+    font-size: $font-small-medium;
+    background-color: transparent;
+    border: 1px solid $text-content-color-darker;
+    border-radius: 4px;
+    color: $text-content-color;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:focus {
+      outline: none;
+    }
+
+    &__icon {
+      transition: all 0.2s ease;
+    }
+  }
+}
+
+#toggle {
+  display: none;
+}
+
+#toggle:checked ~ .footer__popup + .footer__container {
+  transform: translateY(-100%);
+  opacity: 1;
+}
+
+#toggle:checked ~ .footer__popup .footer__popup__icon {
+  transform: rotate(180deg);
+}

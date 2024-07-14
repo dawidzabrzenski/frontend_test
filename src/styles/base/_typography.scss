@@ -1,0 +1,37 @@
+@use "../utils/mixins" as *;
+@use "./colors" as *;
+
+@include google-fonts;
+
+$font-small: 1rem;
+$font-small-medium: 1.6rem;
+$font-medium: 2.2rem;
+$font-medium-large: 2.6rem;
+$font-large: 3.2rem;
+$font-huge: 5.2rem;
+
+$title-shadow: 1px 1px 1px black;
+
+$font-default: "Open Sans", sans-serif;
+
+* {
+  font-size: 50%;
+
+  @include respond(tablet) {
+    font-size: 65%;
+  }
+
+  @include respond(notebook) {
+    font-size: 70%;
+  }
+
+  @include respond(big-desktop) {
+    font-size: 65%;
+  }
+}
+
+body {
+  font-family: $font-default;
+  line-height: 1.2;
+  color: $text-color;
+}

@@ -1,0 +1,80 @@
+@use "../base/colors" as *;
+@use "../base/typography" as *;
+@use "../utils/mixins" as *;
+
+main {
+  min-height: calc(100vh - 16rem);
+  background-color: $background-color;
+
+  .section-header {
+    height: 15.4vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__title {
+      position: relative;
+      font-size: $font-large;
+      font-weight: 300;
+      text-shadow: $title-shadow;
+
+      @include respond(notebook) {
+        font-size: $font-huge;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -2rem;
+        left: 10%;
+        width: 80%;
+        height: 1px;
+        background-color: $text-color;
+      }
+    }
+  }
+
+  .section {
+    max-width: 100vw;
+    padding: 2rem;
+    gap: 8rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 35% 65%;
+
+    @include respond(tablet) {
+      padding: 6rem;
+      grid-template-columns: repeat((3, minmax(0, 1fr)));
+    }
+
+    .bullet-point-box {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+
+      @include respond(tablet) {
+        grid-column: 1 / 2;
+        grid-row: 1 / -1;
+      }
+    }
+
+    .function-button-box {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+
+      @include respond(tablet) {
+        grid-column: 2;
+        grid-row: 1 / -1;
+      }
+    }
+
+    .text-content-box {
+      grid-column: 1 / 3;
+      grid-row: 2 / 3;
+
+      @include respond(tablet) {
+        grid-column: 3;
+        grid-row: 1 / -1;
+      }
+    }
+  }
+}

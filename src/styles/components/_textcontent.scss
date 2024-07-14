@@ -1,0 +1,28 @@
+@use "../base/colors" as *;
+@use "../base/typography" as *;
+@use "../utils/mixins" as *;
+
+.text-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+
+  &__title {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+  }
+
+  &__main {
+    font-size: $font-medium-large;
+    color: $text-content-color;
+    text-align: center;
+
+    @include respond(tablet) {
+      font-size: $font-small-medium;
+    }
+  }
+}

@@ -1,0 +1,200 @@
+@use "../base/typography" as *;
+@use "../base/colors" as *;
+@use "../utils/mixins" as *;
+
+.function-button-list {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: space-between;
+  padding-bottom: 4rem;
+  gap: 2rem;
+
+  @include respond(tablet) {
+    gap: 6rem;
+    align-items: center;
+    justify-content: start;
+  }
+
+  &__buttons {
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+
+    @include respond(big-desktop) {
+      flex-direction: row;
+    }
+
+    &__button {
+      background-color: $background-color;
+      border: 1px solid $text-color;
+      border-radius: 4px;
+      color: $text-content-color;
+      padding: 1.2rem 5.4rem;
+      font-size: $font-small-medium;
+      font-family: $font-default;
+      font-weight: 600;
+      transition: all 1s ease;
+
+      &:hover {
+        background-color: $secondary-color;
+        background: $button-gradient;
+        color: $text-color;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+#modal-overlay {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  animation: slide-down 0.3s ease;
+  animation-fill-mode: forwards;
+  transform: translateY(-100%);
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+#modal-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  animation: slide-down 0.3s ease;
+  animation-fill-mode: forwards;
+  transform: translateY(-100%);
+  z-index: 99;
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.modal {
+  max-width: 90vw;
+  height: 90vh;
+  background-color: $background-color;
+  border-radius: 5px;
+  animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  padding: 2rem;
+}
+
+@keyframes scale-up-center {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.close-icon {
+  font-size: 4rem;
+  text-align: right;
+  cursor: pointer;
+}
+
+.modal-content {
+  text-align: center;
+  padding-left: 48rem;
+  padding-right: 48rem;
+}
+
+.modal-content-heading {
+  color: $text-color;
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+.modal-content-subheading {
+  list-style-type: none; /* Remove default list styles */
+  padding: 0; /* Remove default padding */
+}
+
+.modal-content-subheading li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.3rem 1.5rem;
+  font-size: 1.2rem;
+  color: $text-color;
+  border-bottom: 1px solid #ccc; /* Optional: Add border between list items */
+}
+
+.delete-button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #999;
+  cursor: pointer;
+}
+
+.close-button,
+.open-modal-btn {
+  background-color: $secondary-color;
+  background: $button-gradient;
+  color: #ffffff;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 1.2rem 2rem;
+  margin-top: 1rem;
+  outline: none;
+  border: none;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 540px) {
+  .navbrand {
+    font-size: 1.5rem;
+  }
+
+  .navitem {
+    display: none;
+  }
+
+  .hero-content {
+    margin: 6rem auto;
+  }
+
+  .content-heading {
+    font-size: 2.5rem;
+  }
+
+  .content-subheading {
+    font-size: 0.8rem;
+    padding: 1rem 3rem 4rem;
+    line-height: 1.8;
+  }
+
+  .modal {
+    max-width: 300px;
+    height: 320px;
+    padding: 0rem 1rem;
+  }
+}
