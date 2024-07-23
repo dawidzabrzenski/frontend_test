@@ -59,9 +59,3 @@ Projekt nie musi być 'pixel perfect'. Z uwagi na brak pliku źródłowego a jed
 Należy przesłać link do swojego repozytorium z rozwiązaniem. Dodatkowo wrzuć dokument tekstowy z listą rzeczy których nie udało się wykonać z celów głównych oraz listę rzeczy które zrobiono dodatkowo.
 
 POWODZENIA :)
-
-
-## WYSY�KA PRACY
-Nale�y przes�a� link do swojego repozytorium z rozwi�zaniem. Dodatkowo wrzu� dokument tekstowy z list� rzeczy kt�rych nie uda�o si� wykona� z cel�w g��wnych oraz list� rzeczy kt�re zrobiono dodatkowo.
-
-POWODZENIA :)
